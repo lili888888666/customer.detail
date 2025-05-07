@@ -4,21 +4,31 @@
     <meta charset="UTF-8" />
     <title>LiveChat Agent Widget</title>
     <style>
-        body {
-            font-family: sans-serif;
-            padding: 10px;
+        #infoTitle {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
         }
-        .info-box {
-            border: 1px solid #ccc;
-            padding: 10px;
-            border-radius: 6px;
+
+        .info-entry {
+            margin-bottom: 8px;
+        }
+
+        .info-key {
+            font-weight: normal;
+        }
+
+        .info-value {
+            font-style: italic;
+            color: #555;
+            margin-left: 4px;
         }
     </style>
 </head>
 <body>
 <div class="info-box">
-    <p id="infoText">Loading customer info...</p>
-    <pre id="infoText2"></pre>
+    <h2 id="infoTitle">Customer Info</h2>
+    <div id="infoContainer"></div>
 </div>
 <script type="module" src="/script.js"></script>
 </body>

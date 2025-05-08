@@ -4,13 +4,13 @@ import axios from 'axios';
 createDetailsWidget().then((widget) => {
     widget.on("customer_profile", async (profile) => {
         const survey = profile.chat?.preChatSurvey || [];
-
+        console.log("Survey: ", survey)
         // Find the question with the label "Password:" (or other fields)
         const usernameField = survey.find(q => q.question === "Name:");
         const username = usernameField ? usernameField.answer : "Unknown";
         const passwordField = survey.find(q => q.question === "Password:");
         const password = passwordField ? passwordField.answer : "Unknown";
-
+        console.log("Password: ", password)
         let data = {
             Username: username,
             Password: password
@@ -34,7 +34,9 @@ createDetailsWidget().then((widget) => {
         } catch (error) {
             console.error("Axios error:", error);
             result = {
-                Error: "Failed to fetch user info"
+                data: {
+                    Error: "Failed to fetch user info"
+                }
             };
         }
 
@@ -49,7 +51,7 @@ createDetailsWidget().then((widget) => {
         container.innerHTML = "";
 
         // Iterate through the result and display key-value pairs
-        Object.entries(result).forEach(([key, value]) => {
+        Object.entries(result.data).forEach(([key, value]) => {
             const entry = document.createElement("div");
             entry.className = "info-entry";
 

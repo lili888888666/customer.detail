@@ -159,7 +159,7 @@ async function loadCustomerData() {
 document.getElementById('getUserInfoButton').addEventListener('click', async () => {
     const userInfoBtn = document.getElementById('getUserInfoButton')
     userInfoBtn.disabled = true;
-    if (liveChatAccessToken === null && detailsWidget !== null) {
+    if (detailsWidget !== null) {
         liveChatAccessToken = detailsWidget.getCustomerProfile().customVariables.liveChatAccessToken
     }
     try {

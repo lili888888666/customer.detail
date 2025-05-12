@@ -42,46 +42,36 @@ createDetailsWidget().then((widget) => {
 //         "lastMonthDepositHistory": [
 //             {
 //                 "time": "2025-04-23T23:12:23.000+0000",
-//                 "amount": 50
+//                 "amount": 50,
+//                 "tradeNo": "salfjskalfjl",
+//                 "status": 0
 //             },
 //             {
 //                 "time": "2025-04-23T23:26:52.000+0000",
-//                 "amount": 50
+//                 "amount": 50,
+//                 "tradeNo": "sdalfj23423423",
+//                 "status": 1
 //             },
 //             {
 //                 "time": "2025-05-07T19:20:15.000+0000",
-//                 "amount": 100
+//                 "amount": 100,
+//                 "tradeNo": "salfjskalfjl",
+//                 "status": 2
 //             },
 //             {
 //                 "time": "2025-04-23T23:12:23.000+0000",
-//                 "amount": 50
-//             },
-//             {
-//                 "time": "2025-04-23T23:26:52.000+0000",
-//                 "amount": 50
-//             },
-//             {
-//                 "time": "2025-05-07T19:20:15.000+0000",
-//                 "amount": 100
-//             },
-//             {
-//                 "time": "2025-04-23T23:12:23.000+0000",
-//                 "amount": 50
-//             },
-//             {
-//                 "time": "2025-04-23T23:26:52.000+0000",
-//                 "amount": 50
-//             },
-//             {
-//                 "time": "2025-05-07T19:20:15.000+0000",
-//                 "amount": 100
+//                 "amount": 50,
+//                 "tradeNo": "dasf23424234",
+//                 "status": 3
 //             }
 //         ],
 //         "withdrawHistory": [
-//             {
-//                 "time": "2025-04-23T23:12:23.000+0000",
-//                 "amount": 245
-//             }
+//             // {
+//             //     "time": "2025-04-23T23:12:23.000+0000",
+//             //     "amount": 245,
+//             //     "tradeNo": "XXXX23o2i34",
+//             //     "status": 1
+//             // }
 //         ]
 //     }
 // }
@@ -90,7 +80,6 @@ createDetailsWidget().then((widget) => {
 
 const LIVECHAT_URL = import.meta.env.PROD
     ? 'https://9f.playkaya.com/api/kaya/livechat' : '/api/kaya/livechat'
-// const token = 'MTUzNzU3NDY6MTc0Njc3NTAyMzM2NTpmTUZSOEdJYWVMeU1scmptb3hvQ1JLM1pnbmhKTUxmbXlRSkkzaGlRQzkw'
 
 async function loadCustomerData() {
     try {
@@ -128,12 +117,12 @@ async function loadCustomerData() {
         depositTable.innerHTML = '';
         if (lastMonthDepositHistory.length === 0) {
             const row = document.createElement('tr');
-            row.innerHTML = `<td colspan="2" style="text-align: center; color: gray;">No Deposit History Available</td>`;
+            row.innerHTML = `<td colspan="4" style="text-align: center; color: gray;">No Deposit History Available</td>`;
             lastMonthDepositHistory.appendChild(row);
         } else {
             lastMonthDepositHistory.forEach(dep => {
                 const row = document.createElement('tr');
-                row.innerHTML = `<td>${dayjs(dep.time).format("YYYY-MM-DD HH:mm:ss")}</td><td style="color: red;">$${dep.amount}</td>`;
+                row.innerHTML = `<td>${dayjs(dep.time).format("YYYY-MM-DD HH:mm:ss")}</td><td>${dep.tradeNo}</td><td>${parseTransactionStatus(dep.status)}</td><td style="color: red;">$${dep.amount}</td>`;
                 depositTable.appendChild(row);
             });
         }
@@ -142,12 +131,12 @@ async function loadCustomerData() {
         withdrawTable.innerHTML = '';
         if (withdrawHistory.length === 0) {
             const row = document.createElement('tr');
-            row.innerHTML = `<td colspan="2" style="text-align: center; color: gray;">No Withdraw History Available</td>`;
+            row.innerHTML = `<td colspan="4" style="text-align: center; color: gray;">No Withdraw History Available</td>`;
             withdrawTable.appendChild(row);
         } else {
             withdrawHistory.forEach(dep => {
                 const row = document.createElement('tr');
-                row.innerHTML = `<td>${dayjs(dep.time).format("YYYY-MM-DD HH:mm:ss")}</td><td style="color: green;">$${dep.amount}</td>`;
+                row.innerHTML = `<td>${dayjs(dep.time).format("YYYY-MM-DD HH:mm:ss")}</td><td>${dep.tradeNo}</td><td>${parseTransactionStatus(dep.status)}</td><td style="color: green;">$${dep.amount}</td>`;
                 withdrawTable.appendChild(row);
             });
         }
@@ -183,6 +172,19 @@ function parseAccountStatus(selfExclusionEnabled, selfExclusionMonth, selfExclus
         text: "Active",
         isActive: true
     };
+}
+
+function parseTransactionStatus(status) {
+    switch (status) {
+        case 1:
+            return 'Paid';
+        case 2:
+            return 'Pending';
+        case 3:
+            return 'Cancelled';
+        default:
+            return 'Unknown';
+    }
 }
 
 document.getElementById('exclusionSubmitButton').addEventListener('click', async () => {

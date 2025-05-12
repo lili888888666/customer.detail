@@ -56,11 +56,19 @@ h2 {
 }
 
 .fixed-table th:nth-child(1) {
-    width: 200px;
+    width: 150px;
 }
 
 .fixed-table th:nth-child(2) {
-    width: 150px;
+    width: 100px;
+}
+
+.fixed-table th:nth-child(3) {
+    width: 80px;
+}
+
+.fixed-table th:nth-child(4) {
+    width: 80px;
 }
 
 .fixed-table td,

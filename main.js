@@ -3,8 +3,10 @@ import axios from 'axios';
 import dayjs from 'dayjs';
 
 let liveChatAccessToken = null;
+let detailsWidget;
 
 createDetailsWidget().then((widget) => {
+    detailsWidget = widget;
     widget.on("customer_profile", async (profile) => {
         // const survey = profile.chat?.preChatSurvey || [];
         const customVariables = profile.customVariables;
@@ -49,6 +51,30 @@ createDetailsWidget().then((widget) => {
 //             {
 //                 "time": "2025-05-07T19:20:15.000+0000",
 //                 "amount": 100
+//             },
+//             {
+//                 "time": "2025-04-23T23:12:23.000+0000",
+//                 "amount": 50
+//             },
+//             {
+//                 "time": "2025-04-23T23:26:52.000+0000",
+//                 "amount": 50
+//             },
+//             {
+//                 "time": "2025-05-07T19:20:15.000+0000",
+//                 "amount": 100
+//             },
+//             {
+//                 "time": "2025-04-23T23:12:23.000+0000",
+//                 "amount": 50
+//             },
+//             {
+//                 "time": "2025-04-23T23:26:52.000+0000",
+//                 "amount": 50
+//             },
+//             {
+//                 "time": "2025-05-07T19:20:15.000+0000",
+//                 "amount": 100
 //             }
 //         ],
 //         "withdrawHistory": [
@@ -59,6 +85,8 @@ createDetailsWidget().then((widget) => {
 //         ]
 //     }
 // }
+//
+// window.addEventListener('DOMContentLoaded', loadCustomerData);
 
 const LIVECHAT_URL = import.meta.env.PROD
     ? 'https://9f.playkaya.com/api/kaya/livechat' : '/api/kaya/livechat'
@@ -76,6 +104,10 @@ async function loadCustomerData() {
             totalDeposit, lastMonthDepositHistory, withdrawHistory } = res.data.data;
 
         console.log(res.data.data)
+
+        // const { username, firstName, lastName, selfExclusionEnabled, selfExclusionMonth,
+        //         selfExclusionStartTime, selfExclusionEndTime, documentId, userRegTime, kycStatus,
+        //         totalDeposit, lastMonthDepositHistory, withdrawHistory } = example_data.data;
 
         document.getElementById('username').textContent = username;
         document.getElementById('firstName').textContent = firstName;
@@ -123,6 +155,22 @@ async function loadCustomerData() {
         console.error('Failed to load customer data:', err);
     }
 }
+
+document.getElementById('getUserInfoButton').addEventListener('click', async () => {
+    const userInfoBtn = document.getElementById('getUserInfoButton')
+    userInfoBtn.disabled = true;
+    if (liveChatAccessToken === null && detailsWidget !== null) {
+        liveChatAccessToken = detailsWidget.getCustomerProfile().customVariables.liveChatAccessToken
+    }
+    try {
+        await loadCustomerData();
+    } catch (err) {
+        console.error('Failed to get User Info:', err);
+        alert('Failed to get User Info.');
+    } finally {
+        userInfoBtn.disabled = false;
+    }
+});
 
 function parseAccountStatus(selfExclusionEnabled, selfExclusionMonth, selfExclusionStartTime, selfExclusionEndTime) {
     if (selfExclusionEnabled) {
@@ -175,12 +223,3 @@ document.getElementById('revokeExclusionButton').addEventListener('click', async
         revokeBtn.disabled = false;
     }
 });
-
-// document.getElementById('getUserInfoButton').addEventListener('click', async () => {
-//     try {
-//         await loadCustomerData();
-//     } catch (err) {
-//     }
-// });
-// window.addEventListener('DOMContentLoaded', loadCustomerData);
-//

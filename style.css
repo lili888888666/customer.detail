@@ -35,12 +35,24 @@ h2 {
     color: #111;
 }
 
-table {
+.table-container {
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+}
+
+.fixed-table {
     width: 100%;
+    table-layout: fixed;
     border-collapse: collapse;
-    margin-top: 10px;
-    background-color: white;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.05);
+}
+
+.fixed-table th {
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    z-index: 2;
+    box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.1);
 }
 
 .fixed-table th:nth-child(1) {
@@ -49,6 +61,13 @@ table {
 
 .fixed-table th:nth-child(2) {
     width: 150px;
+}
+
+.fixed-table td,
+.fixed-table th {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
 }
 
 th {

@@ -1,0 +1,112 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 20px;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1c1c1c;
+    margin-top: 30px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.info-item {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.info-item strong,
+.info-item span.label {
+    font-weight: 600;
+    font-size: 16px;
+    color: #111;
+    display: inline-block;
+    margin-right: 6px;
+}
+
+/* Style labels consistently */
+.label {
+    font-weight: 600;
+    font-size: 16px;
+    color: #111;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    background-color: white;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.05);
+}
+
+.fixed-table th:nth-child(1) {
+    width: 200px;
+}
+
+.fixed-table th:nth-child(2) {
+    width: 150px;
+}
+
+th {
+    background-color: #f0f0f0;
+    font-weight: 600;
+    text-align: left;
+    padding: 10px;
+    font-size: 14px;
+}
+
+td {
+    border-top: 1px solid #eee;
+    padding: 10px;
+    font-size: 14px;
+}
+
+/* Inputs and buttons */
+select {
+    margin-top: 10px;
+    padding: 8px 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: white;
+    transition: border-color 0.2s ease-in-out;
+}
+
+select:focus {
+    border-color: #007aff;
+    outline: none;
+}
+
+button {
+    margin-top: 12px;
+    padding: 8px 16px;
+    font-size: 14px;
+    background-color: #007aff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+/* Disable background change when the button is disabled */
+button:disabled {
+    background-color: #d3d3d3; /* Light grey background */
+    color: #a1a1a1; /* Light grey text */
+    cursor: not-allowed; /* Change cursor to indicate it's disabled */
+    pointer-events: none; /* Prevent any interaction (like hover) with disabled button */
+}
+
+/* Button hover effect */
+button:hover {
+    background-color: #005ecb;
+}
+
+/* Prevent hover effect when button is disabled */
+button:disabled:hover {
+    background-color: #d3d3d3; /* Keep the grey color on hover for disabled button */
+}

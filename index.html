@@ -2,34 +2,99 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <title>LiveChat Agent Widget</title>
-    <style>
-        #infoTitle {
-            font-size: 1.5em;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .info-entry {
-            margin-bottom: 8px;
-        }
-
-        .info-key {
-            font-weight: normal;
-        }
-
-        .info-value {
-            font-style: italic;
-            color: #555;
-            margin-left: 4px;
-        }
-    </style>
+    <title>Customer Info</title>
+    <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
-<div class="info-box">
-    <h2 id="infoTitle">Customer Info</h2>
-    <div id="infoContainer"></div>
+
+<h2>Customer Information</h2>
+<div class="info-item">
+    <span class="label">Username:</span>
+    <span id="username">Loading...</span>
 </div>
-<script type="module" src="/script.js"></script>
+
+<div class="info-item">
+    <span class="label">First Name:</span>
+    <span id="firstName">Loading...</span>
+</div>
+
+<div class="info-item">
+    <span class="label">Last Name:</span>
+    <span id="lastName">Loading...</span>
+</div>
+
+<div class="info-item">
+    <span class="label">Account Status:</span>
+    <span id="accountStatus">Loading...</span>
+</div>
+
+<div class="info-item">
+    <span class="label">CPF:</span>
+    <span id="cpf">Loading...</span>
+</div>
+
+<div class="info-item">
+    <span class="label">Registration Time:</span>
+    <span id="registrationTime">Loading...</span>
+</div>
+
+<div class="info-item">
+    <span class="label">KYC Status:</span>
+    <span id="kycStatus">Loading...</span>
+</div>
+
+<div class="info-item">
+    <span class="label">Total Deposit:</span>
+    <span id="totalDeposit">Loading...</span>
+</div>
+
+<div class="info-item">
+    <strong>Last Month Deposit History</strong>
+    <table class="fixed-table">
+        <thead>
+        <tr>
+            <th>Time</th>
+            <th>Deposit Amount</th>
+        </tr>
+        </thead>
+        <tbody id="depositHistoryTable">
+        <tr><td colspan="2">Loading...</td></tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="info-item">
+    <strong>Withdraw History</strong>
+    <table class="fixed-table">
+        <thead>
+        <tr>
+            <th>Time</th>
+            <th>Withdraw Amount</th>
+        </tr>
+        </thead>
+        <tbody id="withdrawHistoryTable">
+        <tr><td colspan="2">Loading...</td></tr>
+        </tbody>
+    </table>
+</div>
+
+<h2>Self Exclusion</h2>
+<select id="exclusionPeriod">
+    <option value="1">Self exclude for 1 month</option>
+    <option value="3">Self exclude for 3 months</option>
+    <option value="6">Self exclude for 6 months</option>
+    <option value="99">Self exclude for 100 months</option>
+</select>
+<br/>
+<div>
+    <button id="exclusionSubmitButton">Submit Self Exclusion</button>
+</div>
+<div>
+    <button id="revokeExclusionButton">Revoke Self Exclusion</button>
+</div>
+<!--<div>-->
+<!--    <button id="getUserInfoButton">Get User Info</button>-->
+<!--</div>-->
+<script type="module" src="/main.js"></script>
 </body>
 </html>

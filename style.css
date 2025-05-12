@@ -56,11 +56,11 @@ h2 {
 }
 
 .fixed-table th:nth-child(1) {
-    width: 150px;
+    width: 100px;
 }
 
 .fixed-table th:nth-child(2) {
-    width: 100px;
+    width: 120px;
 }
 
 .fixed-table th:nth-child(3) {
@@ -76,6 +76,13 @@ h2 {
     padding: 8px;
     text-align: left;
     border-bottom: 1px solid #eee;
+}
+
+.fixed-table td:nth-child(2),
+.fixed-table th:nth-child(2) {
+    word-wrap: break-word;
+    word-break: break-all;
+    white-space: normal;
 }
 
 th {

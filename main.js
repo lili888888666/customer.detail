@@ -43,25 +43,25 @@ createDetailsWidget().then((widget) => {
 //             {
 //                 "time": "2025-04-23T23:12:23.000+0000",
 //                 "amount": 50,
-//                 "tradeNo": "salfjskalfjl",
+//                 "tradeNo": "257998bbbdee4edbbb978f424a34d88b",
 //                 "status": 0
 //             },
 //             {
 //                 "time": "2025-04-23T23:26:52.000+0000",
 //                 "amount": 50,
-//                 "tradeNo": "sdalfj23423423",
+//                 "tradeNo": "257998bbbdee4edbbb978f424a34d88b",
 //                 "status": 1
 //             },
 //             {
 //                 "time": "2025-05-07T19:20:15.000+0000",
 //                 "amount": 100,
-//                 "tradeNo": "salfjskalfjl",
+//                 "tradeNo": "257998bbbdee4edbbb978f424a34d88b",
 //                 "status": 2
 //             },
 //             {
 //                 "time": "2025-04-23T23:12:23.000+0000",
 //                 "amount": 50,
-//                 "tradeNo": "dasf23424234",
+//                 "tradeNo": "7e2d49cd-5844-4c2a-9d01-a2486aba0e6b",
 //                 "status": 3
 //             }
 //         ],

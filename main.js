@@ -65,10 +65,14 @@ const example_data = {
         "username": "5510987658001",
         "firstName": "Joe",
         "lastName": "Durrent",
-        "selfExclusionEnabled": true,
-        "selfExclusionMonth": 6,
-        "selfExclusionStartTime": 1739114325,
-        "selfExclusionEndTime": 1744129125,
+        // "selfExclusionEnabled": true,
+        // "selfExclusionMonth": 6,
+        // "selfExclusionStartTime": 1739114325,
+        // "selfExclusionEndTime": 1744129125,
+        "selfExclusionEnabled": null,
+        "selfExclusionMonth": null,
+        "selfExclusionStartTime": null,
+        "selfExclusionEndTime": null,
         "documentId": "AB-2233-232-323",
         "userRegTime": "2025-04-23T23:11:27.000+0000",
         "kycStatus": 1,
@@ -135,9 +139,9 @@ async function loadCustomerData() {
         const accStatusEl = document.getElementById('accountStatus');
         const accStatus = selfExclusionEnabled
             ? `${t('selfExclusion')} ${selfExclusionMonth} ${t('months')} (${dayjs(selfExclusionStartTime).format('YYYY-MM-DD HH:mm:ss')} - ${dayjs(selfExclusionEndTime).format('YYYY-MM-DD HH:mm:ss')})`
-            : "Active";
-        accStatusEl.textContent = accStatus.text;
-        accStatusEl.style.color = accStatus.isActive ? 'green' : 'red';
+            : t('active');
+        accStatusEl.textContent = accStatus;
+        accStatusEl.style.color = selfExclusionEnabled ? 'red' : 'green';
         document.getElementById('cpf').textContent = documentId;
         document.getElementById('registrationTime').textContent = dayjs(userRegTime).format('YYYY-MM-DD HH:mm:ss');
         const kycEl = document.getElementById('kycStatus');

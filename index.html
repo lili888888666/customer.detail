@@ -2,95 +2,95 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <title>Customer Info</title>
+    <title data-i18n="customerInfo">Customer Info</title>
     <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
 
-<h2>Customer Information</h2>
+<h2 data-i18n="customerInfo">Customer Information</h2>
 <div class="info-item">
-    <span class="label">Username:</span>
+    <span class="label" data-i18n="username">Username:</span>
     <span id="username">Loading...</span>
 </div>
 
 <div class="info-item">
-    <span class="label">First Name:</span>
+    <span class="label" data-i18n="firstName">First Name:</span>
     <span id="firstName">Loading...</span>
 </div>
 
 <div class="info-item">
-    <span class="label">Last Name:</span>
+    <span class="label" data-i18n="lastName">Last Name:</span>
     <span id="lastName">Loading...</span>
 </div>
 
 <div class="info-item">
-    <span class="label">Account Status:</span>
+    <span class="label" data-i18n="accountStatus">Account Status:</span>
     <span id="accountStatus">Loading...</span>
 </div>
 
 <div class="info-item">
-    <span class="label">CPF:</span>
+    <span class="label" data-i18n="cpf">CPF:</span>
     <span id="cpf">Loading...</span>
 </div>
 
 <div class="info-item">
-    <span class="label">Registration Time:</span>
+    <span class="label" data-i18n="registrationTime">Registration Time:</span>
     <span id="registrationTime">Loading...</span>
 </div>
 
 <div class="info-item">
-    <span class="label">KYC Status:</span>
+    <span class="label" data-i18n="kycStatus">KYC Status:</span>
     <span id="kycStatus">Loading...</span>
 </div>
 
 <div class="info-item">
-    <span class="label">Total Deposit:</span>
+    <span class="label" data-i18n="totalDeposit">Total Deposit:</span>
     <span id="totalDeposit">Loading...</span>
 </div>
 
 <div class="info-item">
-    <strong>Last Month Deposit History</strong>
+    <strong data-i18n="lastMonthDepositHistory">Last Month Deposit History</strong>
     <div class="table-container">
         <table class="fixed-table">
             <thead>
             <tr>
-                <th>Time</th>
-                <th>Trade Number</th>
-                <th>Status</th>
-                <th>Deposit Amount</th>
+                <th data-i18n="time">Time</th>
+                <th data-i18n="tradeNumber">Trade Number</th>
+                <th data-i18n="status">Status</th>
+                <th data-i18n="depositAmount">Deposit Amount</th>
             </tr>
             </thead>
             <tbody id="depositHistoryTable">
-            <tr><td colspan="2">Loading...</td></tr>
+            <tr><td colspan="4">Loading...</td></tr>
             </tbody>
         </table>
     </div>
 </div>
 
 <div class="info-item">
-    <strong>Withdraw History</strong>
+    <strong data-i18n="withdrawHistory">Withdraw History</strong>
     <div class="table-container">
         <table class="fixed-table">
             <thead>
             <tr>
-                <th>Time</th>
-                <th>Trade Number</th>
-                <th>Status</th>
-                <th>Withdraw Amount</th>
+                <th data-i18n="time">Time</th>
+                <th data-i18n="tradeNumber">Trade Number</th>
+                <th data-i18n="status">Status</th>
+                <th data-i18n="withdrawAmount">Withdraw Amount</th>
             </tr>
             </thead>
             <tbody id="withdrawHistoryTable">
-            <tr><td colspan="2">Loading...</td></tr>
+            <tr><td colspan="4">Loading...</td></tr>
             </tbody>
         </table>
     </div>
 </div>
 
 <div>
-    <button id="getUserInfoButton">Get User Info</button>
+    <button id="getUserInfoButton" data-i18n="getUserInfo">Get User Info</button>
 </div>
 
-<h2>Self Exclusion</h2>
+<h2 data-i18n="selfExclusion">Self Exclusion</h2>
 <select id="exclusionPeriod">
     <option value="1">Self exclude for 1 month</option>
     <option value="3">Self exclude for 3 months</option>
@@ -99,11 +99,12 @@
 </select>
 <br/>
 <div>
-    <button id="exclusionSubmitButton">Submit Self Exclusion</button>
+    <button id="exclusionSubmitButton" data-i18n="submitExclusion">Submit Self Exclusion</button>
 </div>
 <div>
-    <button id="revokeExclusionButton">Revoke Self Exclusion</button>
+    <button id="revokeExclusionButton" data-i18n="revokeExclusion">Revoke Self Exclusion</button>
 </div>
+
 <script type="module" src="/main.js"></script>
 </body>
 </html>
